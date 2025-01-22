@@ -1,39 +1,39 @@
-import { useState ,useEffect} from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import noimg from "../assets/no-image.png";
 import { api } from "../config";
-import noImage from "../assets/no-image.png"
-import axios from "axios";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-
-export default function Itemcard(props) {
-  const [image, setImage] = useState(noImage);
-  useEffect(() => {
-    axios
-      .get(`${api}/files/${props.image}`)
-      .then((res) => {
-        setImage(`${api}/files/${props.image}`);
-      })
-      .catch((error) => {
-        setImage(noImage);
-      });
-
-
-  },[props.image]);
-
-
+function Itemcard({ id, title, description, image, onDelete }) {
   return (
-    <a href={"/find/details/" + props.id} data-aos="fade-up">
-      <div className="card">
-        <div className="card-img">
+    <div className="item-card" data-aos="fade-up">
+      <Link to={`/find/details/${id}`}>
+        <div className="img-container">
           <img
-            src={image}
+            src={image ? `${api}/files/${image}` : noimg}
             alt=""
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = noimg;
+            }}
           />
         </div>
-        <div className="card-desc">
-          <h2>{props.title}</h2>
-          <p>{props.description}</p>
+        <div className="content">
+          <h3>{title}</h3>
+          <p>{description}</p>
         </div>
-      </div>
-    </a>
+      </Link>
+      <button 
+        onClick={(e) => {
+          e.preventDefault();
+          onDelete();
+        }}
+        className="delete-btn"
+      >
+        <DeleteIcon />
+      </button>
+    </div>
   );
 }
+
+export default Itemcard;

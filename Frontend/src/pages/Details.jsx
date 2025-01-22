@@ -14,7 +14,7 @@ function Details() {
   const [image, setImage] = useState("");
   const { id } = useParams();
 
-  const override: CSSProperties = {
+  const override = {
     display: "block",
     borderColor: "#fdf004",
     position: "absolute",

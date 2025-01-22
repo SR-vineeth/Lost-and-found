@@ -15,8 +15,8 @@ function About(){
           reuniting lost items with their rightful owners.
         </p>
         <footer>
-            <p>Copyright &copy; 2023</p>
-            <p>Designed and Built by <a href="https://arjuncvinod.me">Arjun C Vinod</a></p>
+            <p>Copyright &copy; 2024</p>
+            <p>Designed and Built Vineeth</p>
         </footer>
       </section>
       

@@ -1,3 +1,3 @@
 export const PORT = process.env.PORT || 8000;
 
-export const mongoURL ="mongodb+srv://root:SNzJheXm5ObQeQrh@lostandfound.toc33hc.mongodb.net/lost-items?retryWrites=true&w=majority";
+export const mongoURL ="mongodb://127.0.0.1:27017/items";
